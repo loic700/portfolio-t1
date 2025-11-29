@@ -1,57 +1,67 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio - Veille technologique</title>
-  <link rel="stylesheet" href="css/style8.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veille Technologique - Télio Desmet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style8.css">
 </head>
 <body>
-  <header>
-    <h1>Ma Veille technologique</h1>
-  </header>
 
-  <div id="header" id ="top" style ="text-align: center;";>
-    <nav>
-        <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="diplomes.html">Mes diplômes</a></li>
-            <li><a href="formation.html">Présentation de ma formation</a></li>
-            <li><a href="stages.html">Mes stages</a></li>
-            <li><a href="cv.html">Mon CV</a></li>
-            <li><a href="veilletechno.html" class="active">Ma veille technologique</a></li>
-            <li><a href="presentationperso.html">Présentation personnelle</a></li>
-            <li><a href="contact.html">Me contacter</a></li>
-        </ul>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">LK.</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="diplomes.html">Diplômes</a></li>
+                <li><a href="formation.html">Formation</a></li>
+                <li><a href="stages.html">Stages</a></li>
+                <li><a href="cv.html">CV</a></li>
+                <li><a href="veilletechno.html" class="active">Veille</a></li>
+                <li><a href="presentationperso.html">À propos</a></li>
+                <li><a href="contact.html" class="btn-contact">Contact</a></li>
+            </ul>
+        </div>
     </nav>
-</div>
-
-<br>
 
     <main>
-        <section id="content">
-        <h2>Ma veille technologique :</h2>
-      <h3>Comment l'IA va changer le milieu du développement informatique.</h3>
+        <section class="hero-small">
+            <h1>Veille Technologique</h1>
+            <p>Sujet : L'IA et l'avenir du développement informatique.</p>
+        </section>
 
-<section id="contact2">
-        <p>Voici les divers articles que j'ai trouvés :</p>
-        <div id="liens" id="topL" style="text-align: center; border-radius: 110px;">
-        <nav>
-          <ul>
-            <li><a href="https://www.iquesta.com/Article-Lia-Et-Lavenir-Des-Developpeurs-En-Informatique-Quoi-Attendre-228.html">L'IA et l'avenir des développeurs en informatique: Quoi attendre?</a></li>
-            <li><a href="https://www.zdnet.fr/actualites/microsoft-france-200-suppressions-de-postes-lia-au-coeur-du-remaniement-481154.htm">Microsoft France : 200 suppressions de postes, l’IA au cœur du remaniement</a></li>
-            <li><a href="https://www.lebigdata.fr/l-ia-va-detruire-ces-metiers-selon-le-pdg-d-openai-chatgpt-va-t-il-vous-remplacer"> L’IA va détruire ces métiers, selon le PDG d’OpenAI : ChatGPT va-t-il vous remplacer ?</a></li>
-          </ul>
-        </nav>
+        <div class="container">
+            
+            <div class="grid-container">
+                
+                <article class="card">
+                    <h3>iQuesta</h3>
+                    <p>L'IA et l'avenir des développeurs : À quoi s'attendre ?</p>
+                    <a href="https://www.iquesta.com/Article-Lia-Et-Lavenir-Des-Developpeurs-En-Informatique-Quoi-Attendre-228.html" target="_blank" style="color: var(--primary); font-weight: 600;">Lire l'article &rarr;</a>
+                </article>
+
+                <article class="card">
+                    <h3>ZDNet</h3>
+                    <p>Microsoft France : L'IA au cœur du remaniement et des suppressions de postes.</p>
+                    <a href="https://www.zdnet.fr/actualites/microsoft-france-200-suppressions-de-postes-lia-au-coeur-du-remaniement-481154.htm" target="_blank" style="color: var(--primary); font-weight: 600;">Lire l'article &rarr;</a>
+                </article>
+
+                <article class="card">
+                    <h3>Le Big Data</h3>
+                    <p>L’IA va-t-elle détruire ces métiers ? L'avis du PDG d'OpenAI.</p>
+                    <a href="https://www.lebigdata.fr/l-ia-va-detruire-ces-metiers-selon-le-pdg-d-openai-chatgpt-va-t-il-vous-remplacer" target="_blank" style="color: var(--primary); font-weight: 600;">Lire l'article &rarr;</a>
+                </article>
+
+            </div>
+
+            <p style="margin-top: 2rem; color: var(--gray); font-size: 0.9rem; text-align: center;">Dernière mise à jour : 24/09/2025</p>
+
         </div>
-</section>
-      <p>Le contenu est toujours en cours d'ajout, revenez donc plus tard pour en voir plus.</p>
-            <p>Dernière date de mise à jour le 24/09/2025</p>
-    <br>
-  <footer>
-    <p>&copy; 2025 - Télio Desmet</p>
-  </footer>
+    </main>
 
-  <script src="js/main.js"></script>
+    <footer>
+        <p>&copy; 2025 - Télio Desmet</p>
+    </footer>
 </body>
 </html>

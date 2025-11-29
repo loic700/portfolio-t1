@@ -1,78 +1,71 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio - Présentation de ma formation</title>
-  <link rel="stylesheet" href="css/style8.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Formation - Télio Desmet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style8.css">
 </head>
 <body>
-  <header>
-    <h1>Ma formation</h1>
-  </header>
 
-  <div id="header" id ="top" style ="text-align: center;";>
-    <nav>
-        <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="diplomes.html">Mes diplômes</a></li>
-            <li><a href="formation.html" class="active">Présentation de ma formation</a></li>
-            <li><a href="stages.html">Mes stages</a></li>
-            <li><a href="cv.html">Mon CV</a></li>
-            <li><a href="veilletechno.html">Ma veille technologique</a></li>
-            <li><a href="presentationperso.html">Présentation personnelle</a></li>
-            <li><a href="contact.html">Me contacter</a></li>
-        </ul>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">LK.</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="diplomes.html">Diplômes</a></li>
+                <li><a href="formation.html" class="active">Formation</a></li>
+                <li><a href="stages.html">Stages</a></li>
+                <li><a href="cv.html">CV</a></li>
+                <li><a href="veilletechno.html">Veille</a></li>
+                <li><a href="presentationperso.html">À propos</a></li>
+                <li><a href="contact.html" class="btn-contact">Contact</a></li>
+            </ul>
+        </div>
     </nav>
-</div>
-
-<br>
-
-  <main>
-    <section id="formation">
-        <h2>Voici ma formation</h2>
-        <h3>Le BTS-SIO</h3>
-        <p>Le BTS SIO (Services Informatiques aux Organisations) est un diplôme français de niveau Bac+2 qui forme des professionnels capables de concevoir, développer et maintenir des solutions informatiques adaptées aux besoins des entreprises.</p>
-
-        <section id="contact3">
-        <h2>La spécialité SLAM</h2>
-          <hr>
-        <p>La spécialité « SLAM » pour « Solution Logicielle et Applications Métiers ». Cette spécialité est dédiée à la programmation logicielle en plusieurs langages tels que le Java ou autres.</p>
-        <p>Elle est orientée vers le développement d'applications, la gestion de bases de données, et la création de solutions logicielles pour répondre aux besoins spécifiques des entreprises.</p>
-        <p>C'est la spécialité que j'ai choisi.</p>
-        </section>
-
-        <section id="contact3">
-        <h2>La spécialité SISR</h2>
-          <hr>
-        <p>La spécialité SISR pour « Solution d’Infrastructures Systèmes et Réseaux ». Cette spécialité est dédiée à la création et à l’entretien des systèmes réseaux.</p>
-        <p>Elle est orientée vers la gestion des réseaux informatiques, la sécurité des systèmes, et l'administration des infrastructures pour assurer le bon fonctionnement des services informatiques au sein des organisations.</p>
-        </section>
-
-        <section id="contact3">
-        <h2>La cybersécurité</h2>
-          <hr>
-        <p>Communs aux 2 spécialités, les cours de cybersécurité sont dédiés à nous apprendre la sécurité dans un milieu informatique, penchant plus côté développement pour les élèves en SLAM et côté réseau pour les élèves en SISR.</p>
-        <p>Ces cours couvrent des sujets tels que la protection des données, la prévention des cyberattaques, et les meilleures pratiques pour sécuriser les systèmes et les applications.</p>
-        </section>
-
-    </section>
-  </main>
 
     <main>
-    <section id="projects_formation">
-      <h2>Les projets réalisés au cours de ma formation</h2>
-      <p>Au cours de ma formation, ma classe et moi avons réalisé divers projets tels que :</p>
-        <ul>
-            <li>Une première version de portfolio pour nous introduire au développement web</li>
-            <li>Une application de gestion de frais</li>
-            <li>Un jeu vidéo similaire à WANTED de Nintendo</li>
-    </section>
-  </main>
-   <footer>
-    <p>&copy; 2025 - Télio Desmet</p>
-  </footer>
+        <section class="hero-small">
+            <h1>Le BTS SIO</h1>
+            <p>Services Informatiques aux Organisations</p>
+        </section>
 
-  <script src="js/main.js"></script>
+        <div class="container">
+            <p style="margin-bottom: 2rem;">Le BTS SIO forme des professionnels capables de concevoir, développer et maintenir des solutions informatiques.</p>
+
+            <div class="grid-container">
+                <article class="card">
+                    <h3>💻 Option SLAM (Mon choix)</h3>
+                    <p><strong>Solutions Logicielles et Applications Métiers.</strong></p>
+                    <p>Cette spécialité est dédiée au développement : Java, Python, Web (HTML/CSS/PHP), Gestion de bases de données.</p>
+                </article>
+
+                <article class="card">
+                    <h3>📡 Option SISR</h3>
+                    <p><strong>Solutions d’Infrastructures Systèmes et Réseaux.</strong></p>
+                    <p>Dédiée à l'administration réseau, la maintenance des serveurs et la gestion du parc informatique.</p>
+                </article>
+
+                <article class="card">
+                    <h3>🔒 Cybersécurité</h3>
+                    <p>Un tronc commun essentiel pour apprendre à protéger les données, prévenir les attaques et sécuriser les applications.</p>
+                </article>
+            </div>
+
+            <br><br>
+
+            <h2 class="section-title">Projets réalisés en formation</h2>
+            <ul style="padding-left: 20px; list-style-type: disc; color: var(--gray);">
+                <li>Développement d'un premier portfolio web.</li>
+                <li>Application de gestion de frais (GSB).</li>
+                <li>Développement d'un jeu vidéo type "Wanted".</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 - Télio Desmet</p>
+    </footer>
 </body>
 </html>

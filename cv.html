@@ -1,52 +1,59 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio - Mon CV</title>
-  <link rel="stylesheet" href="css/style8.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon CV - Télio Desmet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style8.css">
 </head>
 <body>
-  <header>
-    <h1>Mon CV et ma lettre de motivation</h1>
-  </header>
 
-  <div id="header" id ="top" style ="text-align: center;";>
-    <nav>
-        <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="diplomes.html">Mes diplômes</a></li>
-            <li><a href="formation.html">Présentation de ma formation</a></li>
-            <li><a href="stages.html">Mes stages</a></li>
-            <li><a href="cv.html" class="active">Mon CV</a></li>
-            <li><a href="veilletechno.html">Ma veille technologique</a></li>
-            <li><a href="presentationperso.html">Présentation personnelle</a></li>
-            <li><a href="contact.html">Me contacter</a></li>
-        </ul>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">LK.</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="diplomes.html">Diplômes</a></li>
+                <li><a href="formation.html">Formation</a></li>
+                <li><a href="stages.html">Stages</a></li>
+                <li><a href="cv.html" class="active">CV</a></li>
+                <li><a href="veilletechno.html">Veille</a></li>
+                <li><a href="presentationperso.html">À propos</a></li>
+                <li><a href="contact.html" class="btn-contact">Contact</a></li>
+            </ul>
+        </div>
     </nav>
-</div>
 
-<br>
+    <main>
+        <section class="hero-small">
+            <h1>Curriculum Vitae</h1>
+            <p>Consultez ou téléchargez mes documents.</p>
+        </section>
 
-  <main>
-    <div class="content-row">
-      <section id="cv">
-          <h2>Le CV</h2>
-          <p>Voici mon CV au format PDF. Vous pouvez le télécharger librement en cliquant sur le bouton "Enregistrer"</p>
-            <embed src="Documents/PDF/CV.pdf" width="1040" height="1400" type="application/pdf"/>
-      </section>
+        <div class="container">
+            
+            <section class="pdf-container">
+                <h2 class="section-title">Mon CV</h2>
+                <a href="Documents/PDF/CV.pdf" class="btn-download" download>📥 Télécharger le CV (PDF)</a>
+                <div style="height: 600px; border: 1px solid #ddd;">
+                    <embed src="Documents/PDF/CV.pdf" width="100%" height="100%" type="application/pdf"/>
+                </div>
+            </section>
 
-      <section id="motiv">
-          <h2>La lettre de motivation</h2>
-          <p>Voici ma lettre de motivation au format PDF. Vous pouvez le télécharger librement en cliquant sur le bouton "Enregistrer"</p>
-          <embed src="Documents/PDF/motiv.pdf" width="1040" height="1400" type="application/pdf"/>
-      </section>
-    </div>
-  </main>
-  <footer>
-    <p>&copy; 2025 - Télio Desmet</p>
-  </footer>
+            <section class="pdf-container" style="margin-top: 4rem;">
+                <h2 class="section-title">Lettre de Motivation</h2>
+                <a href="Documents/PDF/motiv.pdf" class="btn-download" download>📥 Télécharger la lettre (PDF)</a>
+                <div style="height: 600px; border: 1px solid #ddd;">
+                    <embed src="Documents/PDF/motiv.pdf" width="100%" height="100%" type="application/pdf"/>
+                </div>
+            </section>
 
-  <script src="js/main.js"></script>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 - Télio Desmet</p>
+    </footer>
 </body>
 </html>
