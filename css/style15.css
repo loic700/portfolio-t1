@@ -1,0 +1,301 @@
+/* --- STYLE SUNSET VIBES (VERSION FINALE VALIDÉE) --- */
+
+:root {
+    /* Palette Sunset */
+    --primary: #f97316;       /* Orange vibrant */
+    --secondary: #db2777;     /* Rose framboise */
+    --text-dark: #431407;     /* Marron foncé */
+    --white: #ffffff;
+    
+    /* Fond dégradé chaleureux */
+    --bg-warm: linear-gradient(120deg, #ffedd5 0%, #ffc4a3 50%, #fbcfe8 100%);
+    
+    /* Effet Verre */
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.9);
+    
+    /* UI & Spacing */
+    --shadow: 0 10px 40px -10px rgba(249, 115, 22, 0.3);
+    --radius: 20px;
+    --container-width: 1200px;
+    --transition: all 0.3s ease;
+}
+
+/* --- ANIMATIONS --- */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- RESET & GLOBAL --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Poppins', 'Inter', sans-serif;
+    background: var(--bg-warm);
+    background-attachment: fixed;
+    color: var(--text-dark);
+    line-height: 1.7;
+    display: flex; flex-direction: column; min-height: 100vh;
+}
+
+main { 
+    flex: 1; 
+    animation: fadeInUp 0.8s ease-out; 
+}
+
+a { text-decoration: none; color: inherit; transition: var(--transition); }
+ul { list-style: none; }
+img { max-width: 100%; border-radius: var(--radius); }
+
+/* --- SPÉCIAL GOOGLE MAPS (AGRANDISSEMENT) --- */
+iframe {
+    width: 100%;            /* Prend toute la largeur */
+    height: 500px;          /* Hauteur forcée très grande */
+    border-radius: var(--radius);
+    border: 5px solid white;
+    box-shadow: var(--shadow);
+    margin: 2rem 0;
+    display: block;
+}
+
+/* --- BARRES DE SÉPARATION --- */
+hr {
+    border: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+    margin: 3rem 0;
+    opacity: 0.5;
+}
+
+/* --- NAVIGATION (AVEC BARRE QUI SE DESSINE) --- */
+.navbar {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 1rem 0;
+    position: sticky; top: 0; z-index: 1000;
+}
+
+.nav-container {
+    max-width: var(--container-width); margin: 0 auto; padding: 0 2rem;
+    display: flex; justify-content: space-between; align-items: center;
+}
+
+.logo {
+    font-weight: 900; 
+    font-size: 1.8rem; 
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-links { display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center; }
+
+/* Styles des liens du menu */
+.nav-links a { 
+    font-weight: 700; 
+    color: #9a3412; 
+    font-size: 0.95rem; 
+    position: relative; /* Important pour la barre */
+    padding-bottom: 5px;
+}
+
+/* LA BARRE ANIMÉE EN DESSOUS */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0; /* Départ à 0 */
+    height: 3px;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    transition: width 0.3s ease; /* Animation fluide */
+    border-radius: 2px;
+}
+
+/* Au survol, la barre passe à 100% */
+.nav-links a:hover::after, .nav-links a.active::after {
+    width: 100%;
+}
+
+/* Couleur du texte au survol */
+.nav-links a:hover { color: var(--secondary); }
+
+/* Exception pour le bouton contact : pas de barre en dessous */
+.nav-links .btn-contact::after { display: none !important; }
+
+/* Style du bouton Contact */
+.btn-contact { 
+    background: linear-gradient(to right, var(--primary), var(--secondary)); 
+    color: white !important; 
+    padding: 0.7rem 1.8rem; 
+    border-radius: 50px; 
+    box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
+    transition: var(--transition);
+}
+.btn-contact:hover { 
+    transform: translateY(-2px); 
+    box-shadow: 0 8px 25px rgba(236, 72, 153, 0.6);
+}
+
+/* --- HERO SECTION --- */
+.hero-small { 
+    text-align: center; 
+    padding: 6rem 2rem 4rem 2rem;
+}
+
+.hero-small h1 { 
+    font-size: 3.5rem; 
+    font-weight: 800;
+    background: linear-gradient(to right, #ea580c, #db2777);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+}
+
+.hero-small p {
+    color: #7c2d12;
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* --- TITRES DE SECTION (LIGNE SUR LE CÔTÉ) --- */
+.container { max-width: var(--container-width); margin: 0 auto; padding: 2rem; }
+
+.section-title { 
+    font-size: 2rem; 
+    margin-bottom: 3rem; 
+    color: var(--text-dark); 
+    font-weight: 800;
+    /* La barre verticale à gauche que tu voulais */
+    border-left: 6px solid var(--secondary);
+    padding-left: 1.5rem;
+    text-align: left;
+}
+
+/* --- CARTES & DIPLÔMES --- */
+.grid-container { 
+    display: grid; 
+    /* Taille normale des cartes */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 3rem; 
+}
+
+.card, .timeline-item, .form-wrapper, .pdf-container {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: var(--glass-border);
+    border-radius: var(--radius);
+    padding: 2.5rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 3rem;
+}
+
+/* Pas de marge en bas dans une grille */
+.grid-container .card { margin-bottom: 0; }
+
+/* Barre colorée en haut des cartes */
+.card::before, .timeline-item::before, .pdf-container::before {
+    content: ''; 
+    position: absolute; top: 0; left: 0; width: 100%; height: 6px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+.card:hover, .timeline-item:hover { 
+    transform: translateY(-8px); 
+    background: rgba(255, 255, 255, 0.9); 
+    box-shadow: 0 20px 50px rgba(249, 115, 22, 0.2);
+}
+
+.card h3, .timeline-item h3 { 
+    color: var(--secondary); 
+    font-size: 1.5rem; 
+    margin-bottom: 1rem; 
+    font-weight: 700;
+}
+
+.card p, .timeline-item p { 
+    color: #522a1f; 
+    font-weight: 500; 
+}
+
+/* --- BOUTONS TÉLÉCHARGEMENT (CV/MOTIV) --- */
+/* Le style que tu as validé */
+.btn-download, .btn-submit {
+    display: inline-block;
+    min-width: 220px;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    color: white !important;
+    padding: 1rem 3rem;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-download:hover, .btn-submit:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(236, 72, 153, 0.5);
+}
+
+/* --- TAGS --- */
+.tag { 
+    font-size: 0.8rem; font-weight: 800; padding: 0.4rem 1rem; 
+    border-radius: 50px; display: inline-block; margin-bottom: 1rem; color: white; 
+}
+.tag.in-progress { background: linear-gradient(45deg, #f59e0b, #d97706); }
+.tag.finished { background: linear-gradient(45deg, #10b981, #059669); }
+.tag.future { background: linear-gradient(45deg, #ef4444, #b91c1c); }
+
+/* --- TIMELINE SPECIFIQUE --- */
+.timeline-date { 
+    display: inline-block;
+    color: var(--primary); font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
+    font-size: 0.9rem; margin-bottom: 0.5rem;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 0.3rem 1rem; border-radius: 50px;
+}
+
+/* --- FORMULAIRE --- */
+.form-wrapper { max-width: 700px; margin: 0 auto; }
+.form-group label { display: block; margin-bottom: 0.6rem; font-weight: 700; }
+.form-group input, .form-group textarea {
+    width: 100%; padding: 1.2rem; 
+    background: rgba(255, 255, 255, 0.6); 
+    border: 2px solid white; border-radius: 12px;
+    font-family: inherit; font-size: 1rem;
+    transition: var(--transition);
+}
+.form-group input:focus, .form-group textarea:focus { 
+    outline: none; border-color: var(--primary); background: white; 
+    box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.1);
+}
+.btn-submit { width: 100%; margin-top: 1.5rem; }
+
+/* --- FOOTER --- */
+footer {
+    text-align: center; padding: 4rem 2rem; margin-top: 4rem;
+    border-top: 2px solid rgba(255, 255, 255, 0.8);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(254, 215, 170, 0.6));
+    color: var(--text-dark);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .nav-container { flex-direction: column; gap: 1rem; }
+    .hero-small h1 { font-size: 2.5rem; }
+    .card, .timeline-item { padding: 2rem; }
+    .grid-container { grid-template-columns: 1fr; }
+    /* Sur mobile, la map reste assez haute pour être utilisable */
+    iframe { height: 400px; }
+}
