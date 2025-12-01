@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veille Technologique - Loic Kebabla</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style15.css">
+    
+    <link id="theme-style" rel="stylesheet" href="css/style15.css">
 </head>
 <body>
 
@@ -21,6 +22,8 @@
                 <li><a href="veilletechno.html" class="active">Veille</a></li>
                 <li><a href="presentationperso.html">À propos</a></li>
                 <li><a href="contact.html" class="btn-contact">Contact</a></li>
+                
+                <li><button onclick="toggleTheme()" class="theme-switch" title="Changer de thème">🌙 / ☀️</button></li>
             </ul>
         </div>
     </nav>
@@ -34,28 +37,9 @@
         <div class="container">
             
             <div class="grid-container">
-                
-<!--                <article class="card">
-                    <h3>iQuesta</h3>
-                    <p>L'IA et l'avenir des développeurs : À quoi s'attendre ?</p>
-                    <a href="https://www.iquesta.com/Article-Lia-Et-Lavenir-Des-Developpeurs-En-Informatique-Quoi-Attendre-228.html" target="_blank" style="color: var(--primary); font-weight: 600;">Lire l'article &rarr;</a>
-                </article>
+                </div>
 
-                <article class="card">
-                    <h3>ZDNet</h3>
-                    <p>Microsoft France : L'IA au cœur du remaniement et des suppressions de postes.</p>
-                    <a href="https://www.zdnet.fr/actualites/microsoft-france-200-suppressions-de-postes-lia-au-coeur-du-remaniement-481154.htm" target="_blank" style="color: var(--primary); font-weight: 600;">Lire l'article &rarr;</a>
-                </article>
-
-                <article class="card">
-                    <h3>Le Big Data</h3>
-                    <p>L’IA va-t-elle détruire ces métiers ? L'avis du PDG d'OpenAI.</p>
-                    <a href="https://www.lebigdata.fr/l-ia-va-detruire-ces-metiers-selon-le-pdg-d-openai-chatgpt-va-t-il-vous-remplacer" target="_blank" style="color: var(--primary); font-weight: 600;">Lire l'article &rarr;</a>
-                </article>-->
-
-            </div>
-
-            <p style="margin-top: 2rem; color: var(--gray); font-size: 0.9rem; text-align: center;">Dernière mise à jour : 24/09/2025</p>
+            <p style="margin-top: 2rem; color: var(--text-muted); font-size: 0.9rem; text-align: center;">Dernière mise à jour : 24/09/2025</p>
 
         </div>
     </main>
@@ -63,5 +47,28 @@
     <footer>
         <p>&copy; 2025 - Loic Kebabla</p>
     </footer>
+
+    <script>
+        function toggleTheme() {
+            const themeLink = document.getElementById('theme-style');
+            const currentTheme = themeLink.getAttribute('href');
+
+            if (currentTheme.includes('style15.css')) {
+                themeLink.setAttribute('href', 'css/style9_darkg.css');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeLink.setAttribute('href', 'css/style15.css');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        window.onload = function() {
+            const savedTheme = localStorage.getItem('theme');
+            const themeLink = document.getElementById('theme-style');
+            if (savedTheme === 'dark') {
+                themeLink.setAttribute('href', 'css/style9_darkg.css');
+            }
+        }
+    </script>
 </body>
 </html>

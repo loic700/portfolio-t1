@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loic Kebabla - Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <link id="theme-style" rel="stylesheet" href="css/style15.css">
+    <link rel="stylesheet" href="css/style15.css">
 </head>
 <body>
 
@@ -22,8 +21,6 @@
                 <li><a href="veilletechno.html">Veille</a></li>
                 <li><a href="presentationperso.html">À propos</a></li>
                 <li><a href="contact.html" class="btn-contact">Contact</a></li>
-                
-                <li><button onclick="toggleTheme()" class="theme-switch" title="Changer de thème">🌙 / ☀️</button></li>
             </ul>
         </div>
     </nav>
@@ -37,7 +34,7 @@
         <div class="container">
             <section id="intro">
                 <h2 class="section-title">À propos de ce site</h2>
-                <p>Bienvenue sur mon portfolio. Ce site a été codé manuellement (HTML/CSS) pour présenter mon profil orienté systèmes et réseaux.</p>
+                <p>Bienvenue sur mon portfolio. Ce site a été codé manuellement (HTML/CSS) pour présenter mon profil orienté systèmes et réseaux..</p>
             </section>
 
             <br><br>
@@ -89,30 +86,6 @@
     <footer>
         <p>&copy; 2025 - Loic Kebabla. Tous droits réservés.</p>
     </footer>
-
-    <script>
-        function toggleTheme() {
-            const themeLink = document.getElementById('theme-style');
-            const currentTheme = themeLink.getAttribute('href');
-
-            // Si on est sur style15 (Sunset), on passe à style9_darkg (Dark)
-            if (currentTheme.includes('style15.css')) {
-                themeLink.setAttribute('href', 'css/style9_darkg.css');
-                localStorage.setItem('theme', 'dark'); // On sauvegarde le choix
-            } else {
-                themeLink.setAttribute('href', 'css/style15.css');
-                localStorage.setItem('theme', 'light'); // On sauvegarde le choix
-            }
-        }
-
-        // Au chargement de la page, on vérifie si l'utilisateur avait choisi un thème
-        window.onload = function() {
-            const savedTheme = localStorage.getItem('theme');
-            const themeLink = document.getElementById('theme-style');
-            if (savedTheme === 'dark') {
-                themeLink.setAttribute('href', 'css/style9_darkg.css');
-            }
-        }
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>

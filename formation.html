@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ma Formation - Loic Kebabla</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style15.css">
+    
+    <link id="theme-style" rel="stylesheet" href="css/style15.css">
 </head>
 <body>
 
@@ -21,6 +22,8 @@
                 <li><a href="veilletechno.html">Veille</a></li>
                 <li><a href="presentationperso.html">À propos</a></li>
                 <li><a href="contact.html" class="btn-contact">Contact</a></li>
+                
+                <li><button onclick="toggleTheme()" class="theme-switch" title="Changer de thème">🌙 / ☀️</button></li>
             </ul>
         </div>
     </nav>
@@ -68,5 +71,28 @@
     <footer>
         <p>&copy; 2025 - Loic Kebabla</p>
     </footer>
+
+    <script>
+        function toggleTheme() {
+            const themeLink = document.getElementById('theme-style');
+            const currentTheme = themeLink.getAttribute('href');
+
+            if (currentTheme.includes('style15.css')) {
+                themeLink.setAttribute('href', 'css/style9_darkg.css');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeLink.setAttribute('href', 'css/style15.css');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        window.onload = function() {
+            const savedTheme = localStorage.getItem('theme');
+            const themeLink = document.getElementById('theme-style');
+            if (savedTheme === 'dark') {
+                themeLink.setAttribute('href', 'css/style9_darkg.css');
+            }
+        }
+    </script>
 </body>
 </html>
