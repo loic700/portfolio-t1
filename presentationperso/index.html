@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loic Kebabla - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link id="theme-style" rel="stylesheet" href="../css/style15.css">
+
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.getElementById('theme-style').setAttribute('href', '../css/style9_darkg.css');
+            }
+        })();
+    </script>
+</head>
+<body>
+<script>
+        function toggleTheme() {
+            const themeLink = document.getElementById('theme-style');
+            const isSunset = themeLink.getAttribute('href').includes('style15.css');
+            
+            // Chemins avec ../ pour rester sur le bon style
+            themeLink.setAttribute('href', isSunset ? '../css/style9_darkg.css' : '../css/style15.css');
+            localStorage.setItem('theme', isSunset ? 'dark' : 'light');
+        }
+    </script>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">L.K</a>
+            <ul class="nav-links">
+                <li><a href="../">Accueil</a></li>
+                <li><a href="../diplomes/">Diplômes</a></li>
+                <li><a href="../formation/">Formation</a></li>
+                <li><a href="../stage/">Stages</a></li>
+                <li><a href="../cv/">CV</a></li>
+                <li><a href="../veilletechno/">Veille</a></li>
+                <li><a href="." class="active">À propos</a></li>
+                <li><a href="../contact/" class="btn-contact">Contact</a></li>
+                
+                <li><button onclick="toggleTheme()" class="theme-switch" title="Changer de thème">🌙 / ☀️</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero-small">
+            <h1>Qui suis-je ?</h1>
+            <p>Loic Kebabla, 19 ans, Étudiant en BTS SIO option SISR.</p>
+        </section>
+
+        <div class="container">
+            
+            <section>
+                <h2 class="section-title">Ma passion</h2>
+                <p>Passionné par l'infrastructure informatique, je m'oriente vers l'administration des systèmes, des réseaux et la cybersécurité. En dehors des cours, je travaille sur :</p>
+                <ul style="margin-top: 1rem; padding-left: 20px; list-style-type: disc;">
+                    <li>La mise en place d’un serveur dédié.</li>
+                    <li>L'utilisation et la gestion de machines virtuelles.</li>
+                    <li>La création de scripts d'automatisation.</li>
+                </ul>
+            </section>
+
+            <br><br>
+
+            <section>
+                <h2 class="section-title">Localisation</h2>
+                <p>J'habite à <strong>Hautmont (Nord)</strong>. Je passe actuellement le permis de conduire, je reste mobile.</p>
+                <div class="map-responsive">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2557.695849842702!2d3.915555!3d50.254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c22f1f4d9af1fb%3A0x0!2sHautmont%2C%2059330%20Hauts-de-France%2C%20France!5e0!3m2!1sfr!2sfr!4v1698765432100!5m2!1sfr!2sfr" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 - Loic Kebabla</p>
+    </footer>
+
+
+</body>
+</html>

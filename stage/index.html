@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loic Kebabla - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <link id="theme-style" rel="stylesheet" href="../css/style15.css">
+
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.getElementById('theme-style').setAttribute('href', '../css/style9_darkg.css');
+            }
+        })();
+    </script>
+
+    <style>
+        /* --- STYLE POUR LES IMAGES CLIQUABLES ET CENTRÉES --- */
+        .img-zoom-clickable {
+            width: 50%; /* Taille fixée à 50% */
+            display: block;
+            margin: 0 auto 15px auto; /* Centrage horizontal et marge basse */
+            border-radius: 8px;
+            cursor: zoom-in;
+            transition: transform 0.2s ease;
+        }
+        .img-zoom-clickable:hover {
+            transform: scale(1.03);
+        }
+
+        /* --- STYLE DE LA LIGHTBOX (PLEIN ÉCRAN) --- */
+        #lightbox {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+            cursor: zoom-out;
+        }
+        #lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 4px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">L.K</a>
+            <ul class="nav-links">
+                <li><a href="../">Accueil</a></li>
+                <li><a href="../diplomes/">Diplômes</a></li>
+                <li><a href="../formation/">Formation</a></li>
+                <li><a href="." class="active">Stages</a></li>
+                <li><a href="../cv/">CV</a></li>
+                <li><a href="../veilletechno/">Veille</a></li>
+                <li><a href="../presentationperso/">À propos</a></li>
+                <li><a href="../contact/" class="btn-contact">Contact</a></li>
+                <li><button onclick="toggleTheme()" class="theme-switch" title="Changer de thème">🌙 / ☀️</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="hero-small">
+            <h1>Expériences Professionnelles</h1>
+            <p>Immersion en entreprise et mise en pratique.</p>
+        </section>
+
+        <div class="timeline-item">
+            <span class="timeline-date">1ère année BTS SIO (6 semaines)</span>
+            <h3>NEOTEAMS.IO cambrai</h3>
+            <p><strong>Missions :</strong> Services techniques & infrastructure.</p>
+            <p>J’ai participé à l’installation et la mise en service de différents services, dont Nextcloud, ainsi qu’à la configuration de certificats SSL.</p>
+            
+            <div class="map-responsive">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.123456789012!2d2.31!3d48.87!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66efc1234567%3A0xabcdef1234567890!2s75008%20Paris!5e0!3m2!1sfr!2sfr!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+
+            <h2 class="section-title" style="margin-top: 4rem;">Mes Projets Récents</h2>
+
+            <div class="grid-container">
+
+                <article class="card">
+                    <span class="tag finished">Terminé ✅</span>
+                    <h3>Sécurisation HTTPS (SSL)</h3>
+                    <p>Mise à jour et installation de certificats SSL pour garantir la sécurité des accès web.</p>
+                    <button class="btn-more" onclick="enableModal('certif-ssl')">En savoir plus →</button>
+                </article>
+
+                <article class="card">
+                    <span class="tag finished">Terminé ✅</span>
+                    <h3>Maintenance : Augmentation Stockage</h3>
+                    <p>Extension à chaud d'un volume logique LVM suite à l'agrandissement d'un disque virtuel.</p>
+                    <button class="btn-more" onclick="enableModal('stockage-lvm')">En savoir plus →</button>
+                </article>
+
+                <article class="card">
+                    <span class="tag finished">Terminé ✅</span>
+                    <h3>Serveur de Développement (LAMP)</h3>
+                    <p>Installation et configuration d'une pile LAMP complète pour les besoins d'un stagiaire développeur.</p>
+                    <button class="btn-more" onclick="enableModal('lamp-dev')">En savoir plus →</button>
+                </article>
+
+                <article class="card">
+                    <span class="tag finished">Terminé ✅</span>
+                    <h3>Docker : Webmail Roundcube</h3>
+                    <p>Installation et liaison d'un client Roundcube à une base de données mailserver pour le domaine neoresilia.fr.</p>
+                    <button class="btn-more" onclick="enableModal('roundcube-docker')">En savoir plus →</button>
+                </article>
+
+                <article class="card">
+                    <span class="tag finished">Terminé ✅</span>
+                    <h3>ERP/CRM : Dolibarr & Sellyoursas</h3>
+                    <p>Installation de Dolibarr et intégration du module Sellyoursas pour la gestion automatisée d'abonnements SaaS.</p>
+                    <button class="btn-more" onclick="enableModal('dolibarr-setup')">En savoir plus →</button>
+                </article>
+
+                <article class="card">
+                    <span class="tag finished">Terminé ✅</span>
+                    <h3>MDM : Gestion de Flotte</h3>
+                    <p>Installation du service Headwind MDM pour la gestion centralisée de terminaux Android (Tablettes/Smartphones).</p>
+                    <button class="btn-more" onclick="enableModal('mdm-headwind')">En savoir plus →</button>
+                </article>
+            
+                <article class="card">
+                    <span class="tag finished">Terminé ✅</span>
+                    <h3>Docker : Instance Nextcloud</h3>
+                    <p>Mise en place d'un environnement Nextcloud sous Docker pour les tests de production d'un stagiaire développeur.</p>
+                    <button class="btn-more" onclick="enableModal('nextcloud-docker')">En savoir plus →</button>
+                </article>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="timeline-item">
+            <span class="timeline-date">2ème année BTS SIO (5 semaines)</span>
+            <h3>NEOTEAMS.IO cambrai</h3>
+            <p><strong>Missions :</strong> Services techniques & infrastructure.</p>
+            <p>J’ai participé à l’installation et la mise en service de différents services, ainsi qu’à la configuration de certificats SSL. J’ai également réalisé de la maintenance matérielle sur les serveurs et postes clients.</p>
+            
+            <div class="map-responsive">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.123456789012!2d2.31!3d48.87!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66efc1234567%3A0xabcdef1234567890!2s75008%20Paris!5e0!3m2!1sfr!2sfr!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+
+            <h2 class="section-title" style="margin-top: 4rem;">Mes Projets Récents</h2>
+            
+            <div class="grid-container">
+                <article class="card">
+                    <span class="tag finished">Terminé ✅</span>
+                    <h3>Automatisation Wazuh avec Ansible</h3>
+                    <p>Déploiement automatisé de la solution de sécurité Wazuh sur une infrastructure multi-VM.</p>
+                    <button class="btn-more" onclick="enableModal('deploy-wazuh')">En savoir plus →</button>
+                </article>
+
+                <article class="card">
+                    <span class="tag finished">Terminé ✅</span>
+                    <h3>Scripting : Déploiement Passbolt</h3>
+                    <p>Automatisation de l'installation et résolution de problèmes réseau (DNS) via script.</p>
+                    <button class="btn-more" onclick="enableModal('passbolt-script')">En savoir plus →</button>
+                </article>
+
+                <article class="card">
+                    <span class="tag finished">Terminé ✅</span>
+                    <h3>Scripting : Déploiement Odoo 18.0</h3>
+                    <p>Installation automatisée d'Odoo ERP avec sécurisation SSL</p>
+                    <button class="btn-more" onclick="enableModal('odoo-script')">En savoir plus →</button>
+                </article>
+
+                <article class="card">
+                    <span class="tag finished">Terminé ✅</span>
+                    <h3>Scripting : Update Manager (Ansible)</h3>
+                    <p>Script d'interface pour le déploiement sélectif de mises à jour système via JSON.</p>
+                    <button class="btn-more" onclick="enableModal('update-package')">En savoir plus →</button>
+                </article>
+
+                <article class="card">
+                    <span class="tag finished">Terminé ✅</span>
+                    <h3>Scripting : Upgrade OS Automatisé (Ansible)</h3>
+                    <p>Orchestration de montées de version majeures (Debian/Ubuntu) via interface interactive.</p>
+                    <button class="btn-more" onclick="enableModal('upgrade-os')">En savoir plus →</button>
+                </article>
+
+                <article class="card">
+                    <span class="tag finished">Terminé ✅</span>
+                    <h3>Scripting : Déploiement n8n (Docker)</h3>
+                    <p>Installation de l'outil d'automatisation n8n sous Docker pour un client avec persistance des données.</p>
+                    <button class="btn-more" onclick="enableModal('n8n-docker')">En savoir plus →</button>
+                </article>
+
+                <article class="card">
+                    <span class="tag finished">Terminé ✅</span>
+                    <h3>Infrastructure : Pare-feu & Sécurité</h3>
+                    <p>Installation et configuration réseau sous OPNSense, puis migration vers pfSense selon les besoins client.</p>
+                    <button class="btn-more" onclick="enableModal('firewall-setup')">En savoir plus →</button>
+                </article>
+
+                <article class="card">
+                    <span class="tag stopped" style="background-color: #e74c3c; color: white;">Arrêté 🛑</span>
+                    <h3>Service Applicatif Multi-Clients</h3>
+                    <p>Mise en production de services personnalisés avec gestion d'API et hébergement sous Plesk.</p>
+                    <button class="btn-more" onclick="enableModal('replyguy')">En savoir plus →</button>
+                </article>
+
+            </div>
+        </div>
+    </main>
+
+<div class="modal" id="deploy-wazuh">
+    <div class="modal-content">
+        <div class="header">
+            <h3>Déploiement Automatisé : Ansible & Wazuh</h3>
+            <span onclick="disableModal('deploy-wazuh')" class="close_modal">×</span>
+        </div>
+        <div class="body">
+            <h4>Pourquoi ?</h4>
+            <p>Automatiser le déploiement pour garantir une configuration homogène, rapide et sécurisée sur l'ensemble du parc informatique.</p>
+            <h4>Comment ?</h4>
+            <p>Création de <strong>Playbooks Ansible</strong> en YAML pour l'installation automatique du manager Wazuh et le déploiement massif d'agents sur des machines virtuelles .</p>
+            <h4>Détails & Aperçu technique</h4>
+            <p>Le projet inclut la configuration et l'installation, la gestion des inventaires Ansible et la sécurisation des communications entre les agents et le serveur central.</p>
+            <img src="../Documents/Stage_2_image/deploy-wazuh.png" alt="Architecture Wazuh" class="img-zoom-clickable" onclick="openLightbox(this.src)">
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="certif-ssl">
+    <div class="modal-content">
+        <div class="header">
+            <h3>Gestion et Mise à jour SSL/TLS</h3>
+            <span onclick="disableModal('certif-ssl')" class="close_modal">×</span>
+        </div>
+        <div class="body">
+            <h4>Pourquoi ?</h4>
+            <p>Permettre un accès sécurisé via le protocole HTTPS, chiffrer les données échangées et éviter les messages d'alerte des navigateurs "Site non sécurisé".</p>
+            <h4>Comment ?</h4>
+            <p>Renouvellement des certificats, configuration des serveurs web pour forcer le passage du HTTP vers le HTTPS et vérification de la chaîne de certification.</p>
+            <h4>Sécurité & Confidentialité</h4>
+            <p><em>Note : Par mesure de sécurité et pour respecter la confidentialité de l'entreprise, aucune capture d'écran n'est divulguée dans cette partie.</em></p>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="passbolt-script">
+    <div class="modal-content">
+        <div class="header">
+            <h3>Installation Scriptée & Troubleshooting</h3>
+            <span onclick="disableModal('passbolt-script')" class="close_modal">×</span>
+        </div>
+        <div class="body">
+            <h4>Pourquoi ?</h4>
+            <p>Préparer les machines pour un déploiement automatisé via Ansible en créant un utilisateur dédié et en configurant les clés SSH de manière sécurisée.</p>
+            <h4>Comment ?</h4>
+            <p>Développement d'un script Bash pour la création automatique de l'utilisateur, génération de paires de clés SSH et configuration des droits d'accès.</p>
+            <h4>Résolution de problème (DNS)</h4>
+            <p>Suite à des échecs d'installation liés à des problèmes de résolution de noms (DNS), j'ai enrichi le script avec une fonction de vérification : en cas d'échec, le script configure automatiquement un serveur DNS valide pour permettre la poursuite de l'installation de Passbolt.</p>
+            <img src="../Documents/Stage_2_image/script-passbolt.png" alt="Passbolt Script" class="img-zoom-clickable" onclick="openLightbox(this.src)">
+            <img src="../Documents/Stage_2_image/script-passbolt01.png" alt="Passbolt DNS" class="img-zoom-clickable" style="width: 25%;" onclick="openLightbox(this.src)">
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="odoo-script">
+    <div class="modal-content">
+        <div class="header">
+            <h3>Installation Automatisée d'Odoo 18.0</h3>
+            <span onclick="disableModal('odoo-script')" class="close_modal">×</span>
+        </div>
+        <div class="body">
+            <h4>Pourquoi ?</h4>
+            <p>Réduire le temps de déploiement d'un environnement ERP complexe (passant de 30 min à 5 min) tout en garantissant une installation propre, sécurisée et immédiatement opérationnelle sur des instances Ubuntu/Debian.</p>
+            <h4>Prérequis et Configuration</h4>
+            <p>Avant de lancer le script, une configuration manuelle du <strong>DNS (1.1.1.1)</strong> doit être effectuée sur la machine pour garantir le bon téléchargement des paquets. Le script prend ensuite le relais pour installer les dépendances et configurer le serveur web <strong>Nginx</strong> avec vos certificats SSL.</p>
+            <h4>Documentation & Simplicité</h4>
+            <p>Ce projet inclut une <strong>documentation détaillée</strong> conçue pour une utilisation simple et précise. Elle guide l'utilisateur pas à pas, de la préparation de la VM jusqu'à la récupération des identifiants finaux dans le fichier de configuration.</p>
+            <img src="../Documents/Stage_2_image/script-odoo.png" class="img-zoom-clickable" onclick="openLightbox(this.src)">
+            <img src="../Documents/Stage_2_image/script-odoo01.png" class="img-zoom-clickable" onclick="openLightbox(this.src)">
+            <img src="../Documents/Stage_2_image/script-odoo02.png" class="img-zoom-clickable" onclick="openLightbox(this.src)">
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="update-package">
+    <div class="modal-content">
+        <div class="header">
+            <h3>Update Manager : Orchestration de Mises à Jour</h3>
+            <span onclick="disableModal('update-package')" class="close_modal">×</span>
+        </div>
+        <div class="body">
+            <h4>Pourquoi ?</h4>
+            <p>Éviter les mises à jour "aveugles" qui peuvent casser des services critiques. Ce script permet de choisir précisément quel paquet mettre à jour sur chaque machine (PVE ou VM) via une interface visuelle.</p>
+            
+            <h4>Fonctionnement</h4>
+            <p>Le système repose sur un cycle automatisé entre Ansible et Python :</p>
+            <ul>
+                <li><strong>Scan :</strong> Un playbook Ansible récupère les paquets non à jour et génère des fichiers <strong>JSON</strong>.</li>
+                <li><strong>Interface :</strong> Le script affiche un tableau de bord dynamique pour la sélection des paquets.</li>
+                <li><strong>Interface & Ergonomie :</strong> Ajout de boutons de contrôle (Tout Cocher, Tout Décocher, Ignorer) et amélioration du CSS pour un accès plus simple et intuitif aux informations.</li>
+                <li><strong>Validation :</strong> La sélection crée un fichier <code>selection.json</code> utilisé par Ansible pour l'installation.</li>
+            </ul>
+            
+            <h4>Documentation</h4>
+            <p>Une documentation simple et précise accompagne ce script pour une prise en main rapide, de la phase de scan à la validation finale.</p>
+            
+            <div style="text-align: center;">
+                <img src="../Documents/Stage_2_image/script-update.png" class="img-zoom-clickable" onclick="openLightbox(this.src)">
+                <img src="../Documents/Stage_2_image/script-update01.png" class="img-zoom-clickable" onclick="openLightbox(this.src)">
+                <img src="../Documents/Stage_2_image/script-update02.png" class="img-zoom-clickable" onclick="openLightbox(this.src)">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="upgrade-os">
+    <div class="modal-content">
+        <div class="header">
+            <h3>Upgrade OS : Migration de Distribution Automatisée</h3>
+            <span onclick="disableModal('upgrade-os')" class="close_modal">×</span>
+        </div>
+        <div class="body">
+            <img src="../Documents/Stage_2_image/script-ugrade.png" 
+                 alt="Interface Upgrade OS" 
+                 class="img-zoom-clickable" 
+                 onclick="openLightbox(this.src)">
+
+            <h4>Pourquoi ?</h4>
+            <p>Réaliser des montées de version majeures (Dist-Upgrade) sur un parc de serveurs est une opération critique et chronophage. Ce script sécurise le processus en permettant de piloter la migration de chaque machine depuis une interface visuelle.</p>
+            
+            <h4>Fonctionnement</h4>
+            <p>Le livre de jeu (Playbook) orchestre la migration en plusieurs phases :</p>
+            <ul>
+                <li><strong>Scan Initial :</strong> Récupération automatique des distributions actuelles (IP, Version, Nom de code) sur tout le parc.</li>
+                <li><strong>Interface & Ergonomie :</strong> Utilisation d'un script web pour sélectionner facilement la version cible pour chaque VM.</li>
+                <li><strong>Migration forcée :</strong> Automatisation du changement des dépôts (<code>sources.list</code>), gestion des conflits de configuration (<code>force-confold</code>) et redémarrage automatique après succès.</li>
+            </ul>
+            
+            <h4>Documentation</h4>
+            <p>Une machine virtuelle a été créée pour permettre le test du script sans impacter la <strong>VM de production.</strong> Il n’est donc pas nécessaire de masquer <strong>l’adresse IP.</strong></p>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="stockage-lvm">
+    <div class="modal-content">
+        <div class="header">
+            <h3>Augmentation de Stockage (15 Go vers 150 Go)</h3>
+            <span onclick="disableModal('stockage-lvm')" class="close_modal">×</span>
+        </div>
+            <h4>Pourquoi ?</h4>
+            <p>Cette opération a été effectuée sur <strong>différentes machines virtuelles (VMs)</strong> pour augmenter leur capacité de stockage sans interruption de service, répondant ainsi aux besoins croissants de données.</p>
+            
+            <h4>Comment ?</h4>
+            <p>L'extension a été réalisée à chaud en suivant ces étapes techniques :</p>
+            <ul>
+                <li><strong>Identification :</strong> <code>lsblk</code></li>
+                <li><strong>Extension de la partition :</strong> <code>sudo growpart /dev/sda 3</code></li>
+                <li><strong>Redimensionnement du volume physique :</strong> <code>sudo pvresize /dev/sda3</code></li>
+                <li><strong>Extension du volume logique :</strong> <code>sudo lvextend -l +100%FREE /dev/mapper/ubuntu--vg-ubuntu--lv</code></li>
+                <li><strong>Mise à jour du système de fichiers :</strong> <code>sudo resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv</code></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="n8n-docker">
+    <div class="modal-content">
+        <div class="header">
+            <h3>Installation n8n sous Docker pour un Client</h3>
+            <span onclick="disableModal('n8n-docker')" class="close_modal">×</span>
+        </div>
+        <div class="body">
+            <img src="../Documents/Stage_2_image/script-n8n.png" 
+                 alt="Déploiement n8n Docker" 
+                 class="img-zoom-clickable" 
+                 onclick="openLightbox(this.src)">
+
+            <h4>Pourquoi ?</h4>
+            <p>Mettre à disposition une plateforme d'automatisation de workflows puissante (n8n) de manière isolée et sécurisée. L'utilisation de Docker permet une gestion simplifiée des mises à jour et une meilleure portabilité pour le client.</p>
+            
+            <h4>Comment ?</h4>
+            <p>Le déploiement a été réalisé en utilisant la technologie des conteneurs pour garantir la stabilité du service :</p>
+            <ul>
+                <li><strong>Conteneurisation :</strong> Utilisation de <strong>Docker</strong> et <strong>Docker-compose</strong> pour orchestrer le service n8n.</li>
+                <li><strong>Persistance :</strong> Configuration de volumes Docker pour sauvegarder les workflows et les bases de données du client, évitant toute perte de données en cas de redémarrage.</li>
+                <li><strong>Sécurisation :</strong> Paramétrage de l'accès via un reverse proxy pour assurer une connexion sécurisée.</li>
+            </ul>
+
+            <h4>Bénéfices Client</h4>
+            <p>Cette installation permet au client de créer des automatisations entre différents services (API, bases de données, outils SaaS) sur une infrastructure robuste dont les ressources sont isolées du reste du système.</p>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="replyguy">
+    <div class="modal-content">
+        <div class="header">
+            <h3>Déploiement et Maintenance : Service Tiers</h3>
+            <span onclick="disableModal('replyguy')" class="close_modal">×</span>
+        </div>
+        <div class="body">
+            <img src="../Documents/Stage_2_image/script-production.png" 
+                 alt="Gestion de production" 
+                 class="img-zoom-clickable" 
+                 onclick="openLightbox(this.src)">
+
+            <h4>Pourquoi ?</h4>
+            <p>Ce projet visait à déployer et maintenir une application personnalisée pour plusieurs clients, nécessitant une mise en production sécurisée et une gestion rigoureuse des accès.</p>
+            
+            <h4>Mise en Œuvre Technique</h4>
+            <ul>
+                <li><strong>Gestion via Plesk :</strong> Configuration des environnements d'hébergement et des domaines pour chaque client.</li>
+                <li><strong>Configuration API :</strong> Modification et mise à jour des clés API pour assurer la connectivité des services.</li>
+                <li><strong>Tests de production :</strong> Mise en place d'instances de test pour valider les fonctionnalités.</li>
+            </ul>
+
+            <h4>Statut du Projet</h4>
+            <p style="color: #e67e22; font-weight: bold;">⚠️ Projet non finalisé : je n'ai pas reçu de nouvelles du développeur externe pour terminer l'intégration et finaliser le projet.</p>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="firewall-setup">
+    <div class="modal-content">
+        <div class="header">
+            <h3>Mise en place de solutions Pare-feu (OPNSense / pfSense)</h3>
+            <span onclick="disableModal('firewall-setup')" class="close_modal">×</span>
+        </div>
+        <div class="body">
+            <img src="../Documents/Stage_2_image/opnsense.png" 
+                 alt="Interface OPNSense" 
+                 class="img-zoom-clickable" 
+                 onclick="openLightbox(this.src)">
+
+            <h4>Pourquoi ?</h4>
+            <p>L'objectif était de sécuriser l'infrastructure réseau en installant un pare-feu open-source robuste pour gérer les flux, les accès distants et la protection du parc informatique.</p>
+            
+            <h4>Réalisation et Adaptation</h4>
+            <p>Le projet s'est déroulé en deux étapes majeures :</p>
+            <ul>
+                <li><strong>Installation initiale :</strong> Déploiement et configuration complète d'<strong>OPNSense</strong> (gestion des interfaces, règles de filtrage, NAT).</li>
+                <li><strong>Retour utilisateur :</strong> L'interface d'OPNSense étant complètement différente de celle de pfSense, même moi j'ai eu un peu de mal avec ce changement d'interface, et le patron n'a pas été convaincu.</li>
+                <li><strong>Migration :</strong> Suite à ce retour, j'ai procédé à la réinstallation et à la reconfiguration du réseau sous <strong>pfSense</strong> pour répondre aux préférences de l'entreprise.</li>
+            </ul>
+
+            <h4>Environnement Technique</h4>
+            <p>Configuration de règles de pare-feu et sécurisation des interfaces WAN/LAN.</p>
+
+            <div style="text-align: center; margin-top: 25px; border-top: 1px solid #eee; padding-top: 20px;">
+                <h4 style="margin-bottom: 15px; text-align: left;">Captures d'écran (cliquez pour agrandir) :</h4>
+                <img src="../Documents/Stage_2_image/pfsense.png" class="img-zoom-clickable" onclick="openLightbox(this.src)">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="roundcube-docker">
+    <div class="modal-content">
+        <div class="header">
+            <h3>Déploiement Roundcube (Docker) - neoresilia.fr</h3>
+            <span onclick="disableModal('roundcube-docker')" class="close_modal">×</span>
+        </div>
+        <div class="body">
+            <img src="../Documents/Stage_1_image/script-roundcube.png" 
+                 alt="Interface Roundcube Docker" 
+                 class="img-zoom-clickable" 
+                 onclick="openLightbox(this.src)">
+
+            <h4>Pourquoi ?</h4>
+            <p>L'objectif était de mettre en place une interface Webmail moderne et fluide pour les utilisateurs du domaine <strong>neoresilia.fr</strong>, en utilisant l'isolation logicielle pour faciliter la maintenance.</p>
+            
+            <h4>Comment ?</h4>
+            <p>La mise en production a été réalisée via une architecture conteneurisée :</p>
+            <ul>
+                <li><strong>Conteneurisation :</strong> Déploiement de l'image Docker <strong>Roundcube</strong> personnalisée pour répondre aux besoins du domaine.</li>
+                <li><strong>Liaison Base de Données :</strong> Configuration des paramètres de connexion pour relier le client Webmail à la base de données existante du <strong>mailserver</strong>.</li>
+                <li><strong>Interconnexion :</strong> Paramétrage des protocoles IMAP et SMTP pour permettre la lecture et l'envoi d'e-mails sécurisés sur l'infrastructure.</li>
+            </ul>
+
+            <h4>Environnement Technique</h4>
+            <p>Utilisation de Docker Compose, gestion de base de données MariaDB/MySQL et sécurisation des échanges via certificats SSL.</p>
+
+            <div style="text-align: center; margin-top: 25px; border-top: 1px solid #eee; padding-top: 20px;">
+                <h4 style="margin-bottom: 15px; text-align: left;">Aperçu technique :</h4>
+                <img src="../Documents/Stage_1_image/script-roundcube01.png" class="img-zoom-clickable" onclick="openLightbox(this.src)">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="dolibarr-setup">
+    <div class="modal-content">
+        <div class="header">
+            <h3>Déploiement Dolibarr et Module Sellyoursas</h3>
+            <span onclick="disableModal('dolibarr-setup')" class="close_modal">×</span>
+        </div>
+        <div class="body">
+            <img src="../Documents/Stage_1_image/script-dolibarr.png" 
+                 alt="Interface Dolibarr et Sellyoursas" 
+                 class="img-zoom-clickable" 
+                 onclick="openLightbox(this.src)">
+
+            <h4>Pourquoi ?</h4>
+            <p>Mettre en place une solution complète de gestion (ERP/CRM) capable de gérer non seulement l'activité commerciale classique, mais aussi la vente et le suivi automatisé de services logiciels (SaaS) via le module dédié <strong>Sellyoursas</strong>.</p>
+            
+            <h4>Mise en Œuvre</h4>
+            <p>Le projet a nécessité une configuration précise de l'environnement et l'utilisation de méthodes de déploiement modernes :</p>
+            <ul>
+                <li><strong>Installation de Dolibarr :</strong> Déploiement réalisé à l'aide de <strong>GitHub</strong> pour récupérer les sources officielles sur une pile <strong>LEMP</strong> (Linux, Nginx, MariaDB, PHP), permettant un meilleur suivi des versions.</li>
+                <li><strong>Intégration Sellyoursas :</strong> Installation, activation et paramétrage du module tiers pour la gestion des produits d'abonnement et l'automatisation des accès clients.</li>
+                <li><strong>Base de Données :</strong> Configuration de <strong>MariaDB</strong> pour assurer la persistance et la sécurité des données clients et contractuelles.</li>
+                <li><strong>Sécurisation SSL :</strong> Mise en place de certificats pour garantir la confidentialité et la sécurité des échanges sur le portail de gestion.</li>
+            </ul>
+
+            <h4>Environnement Technique</h4>
+            <p>Pile LEMP, PHP 8.x, Git (GitHub) pour le déploiement des sources, et sécurisation HTTPS.</p>
+
+            <div style="text-align: center; margin-top: 25px; border-top: 1px solid #eee; padding-top: 20px;">
+                <h4 style="margin-bottom: 15px; text-align: left;">Aperçu de la solution :</h4>
+                <img src="../Documents/Stage_1_image/script-dolibarr01.png" class="img-zoom-clickable" onclick="openLightbox(this.src)">
+                <img src="../Documents/Stage_1_image/script-dolibarr02.png" class="img-zoom-clickable" onclick="openLightbox(this.src)">
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" id="mdm-headwind">
+    <div class="modal-content">
+        <div class="header">
+            <h3>Installation du service Headwind MDM</h3>
+            <span onclick="disableModal('mdm-headwind')" class="close_modal">×</span>
+        </div>
+        <div class="body">
+            <img src="../Documents/Stage_1_image/headwind-mdm.png" 
+                 alt="Console Headwind MDM" 
+                 class="img-zoom-clickable" 
+                 onclick="openLightbox(this.src)">
+
+            <h4>Pourquoi ?</h4>
+            <p>Mettre en place une solution de <strong>Mobile Device Management (MDM)</strong> pour permettre à l'entreprise d'administrer à distance sa future flotte d'appareils Android et d'en sécuriser les usages.</p>
+            
+            <h4>Réalisation</h4>
+            <p>Le projet s'est concentré sur la mise en place de l'infrastructure logicielle :</p>
+            <ul>
+                <li><strong>Installation du service :</strong> Déploiement complet et configuration du serveur <strong>Headwind MDM</strong> sur une plateforme Linux.</li>
+                <li><strong>Préparation de la console :</strong> Paramétrage de l'interface d'administration pour accueillir les futurs terminaux.</li>
+                <li><strong>Limitation matérielle :</strong> La configuration finale et l'enrôlement des appareils n'ont pas pu être réalisés, car les téléphones et tablettes n'ont pas été reçus durant la période de stage.</li>
+            </ul>
+
+            <h4>Environnement Technique</h4>
+            <p>Serveur sous Linux, Interface de gestion web sécurisée.</p>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="nextcloud-docker">
+    <div class="modal-content">
+        <div class="header">
+            <h3>Installation Nextcloud (Docker) pour Tests de Prod</h3>
+            <span onclick="disableModal('nextcloud-docker')" class="close_modal">×</span>
+        </div>
+        <div class="body">
+            <img src="../Documents/Stage_1_image/script-nextcloud.png" 
+                 alt="Instance Nextcloud Docker" 
+                 class="img-zoom-clickable" 
+                 onclick="openLightbox(this.src)">
+
+            <h4>Pourquoi ?</h4>
+            <p>L'objectif était de fournir rapidement un environnement de stockage et de collaboration fonctionnel sous <strong>Docker</strong> afin de permettre à un autre stagiaire développeur de réaliser des tests de production dans un cadre isolé et contrôlé.</p>
+            
+            <h4>Réalisation Technique</h4>
+            <ul>
+                <li><strong>Déploiement Docker :</strong> Utilisation de Docker et Docker-compose pour monter l'instance Nextcloud et sa base de données associée.</li>
+                <li><strong>Configuration de Test :</strong> Paramétrage spécifique pour simuler des conditions de production et permettre au développeur d'éprouver ses scripts ou applications.</li>
+                <li><strong>Gestion de la persistance :</strong> Mise en place de volumes Docker pour assurer la sécurité des données de test durant toute la phase de développement.</li>
+            </ul>
+
+            <h4>Environnement Technique</h4>
+            <p>Conteneurisation Docker, stack LAMP/LEMP interne au conteneur, et gestion des droits d'accès pour l'utilisateur final.</p>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="lamp-dev">
+    <div class="modal-content">
+        <div class="header">
+            <h3>Installation d'un Serveur LAMP pour Développement</h3>
+            <span onclick="disableModal('lamp-dev')" class="close_modal">×</span>
+        </div>
+        <div class="body">
+            <img src="../Documents/Stage_1_image/script-lamp.png" 
+                 alt="Architecture Serveur LAMP" 
+                 class="img-zoom-clickable" 
+                 onclick="openLightbox(this.src)">
+
+            <h4>Pourquoi ?</h4>
+            <p>Fournir à un autre stagiaire développeur un environnement de travail standardisé et performant pour le développement, l'hébergement et le test d'applications web basées sur PHP.</p>
+            
+            <h4>Réalisation Technique</h4>
+            <p>Le déploiement de la pile LAMP (Linux, Apache, MySQL/MariaDB, PHP) a été réalisé en configurant chaque couche pour assurer une interopérabilité maximale :</p>
+            <ul>
+                <li><strong>Système :</strong> Préparation et durcissement de base du serveur sous Linux.</li>
+                <li><strong>Serveur Web :</strong> Installation d'<strong>Apache</strong> avec configuration des Virtual Hosts pour isoler les différents projets.</li>
+                <li><strong>Base de données :</strong> Mise en place de <strong>MariaDB</strong>, incluant la création d'utilisateurs dédiés et la gestion des privilèges.</li>
+                <li><strong>Environnement PHP :</strong> Installation de <strong>PHP</strong> et des modules nécessaires au bon fonctionnement des scripts du développeur.</li>
+            </ul>
+
+            <h4>Collaboration interne</h4>
+            <p>Cette infrastructure stable a permis au développeur de mener à bien ses phases de programmation et de tests applicatifs dans un environnement conforme aux standards de production.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div id="lightbox" onclick="this.style.display='none'">
+    <img id="lightbox-img" src="">
+</div>
+
+<footer><p>© 2026 - Loic Kebabla</p></footer>
+
+<script>
+    /* MODALS LOGIC */
+    function enableModal(id) {
+        document.getElementById(id).style.display = 'flex';
+        document.body.style.overflow = 'hidden'; 
+    }
+    function disableModal(id) {
+        document.getElementById(id).style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+
+    /* LIGHTBOX LOGIC */
+    function openLightbox(src) {
+        document.getElementById('lightbox-img').src = src;
+        document.getElementById('lightbox').style.display = 'flex';
+    }
+
+    /* THEME LOGIC */
+    function toggleTheme() {
+        const themeLink = document.getElementById('theme-style');
+        const isSunset = themeLink.getAttribute('href').includes('style15.css');
+        themeLink.setAttribute('href', isSunset ? '../css/style9_darkg.css' : '../css/style15.css');
+        localStorage.setItem('theme', isSunset ? 'dark' : 'light');
+    }
+
+    window.onclick = function(e) { 
+        if (e.target.className === 'modal') { 
+            e.target.style.display = 'none'; 
+            document.body.style.overflow = 'auto'; 
+        } 
+    }
+</script>
+</body>
+</html>

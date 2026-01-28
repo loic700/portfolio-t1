@@ -299,3 +299,30 @@ footer {
     /* Sur mobile, la map reste assez haute pour être utilisable */
     iframe { height: 400px; }
 }
+
+
+
+/* GRILLE 3 COLONNES & MODALE LARGE (SUNSET) */
+.grid-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
+
+.btn-more {
+    background: transparent; border: 1px solid var(--primary); color: var(--primary);
+    padding: 0.6rem 1.5rem; border-radius: 50px; cursor: pointer; transition: 0.3s;
+}
+
+.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(67, 20, 7, 0.5); z-index: 2000; justify-content: center; align-items: center; }
+.modal-content { 
+    background: white; border-radius: var(--radius); border: 2px solid white; padding: 4rem; 
+    max-width: 1450px; width: 95%; max-height: 85vh; overflow-y: auto; position: relative; 
+}
+
+/* ESPACEMENT TITRE RÉDUIT ICI */
+.modal .header { 
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 2px solid var(--primary); 
+    padding-bottom: 0.4rem; 
+    margin-bottom: 1.5rem; 
+}
+
+.close_modal { cursor: pointer; font-size: 2.5rem; color: var(--secondary); }
+.modal h4 { color: var(--secondary); margin-top: 1.5rem; font-weight: 800; }

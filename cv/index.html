@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loic Kebabla - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link id="theme-style" rel="stylesheet" href="../css/style15.css">
+
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.getElementById('theme-style').setAttribute('href', '../css/style9_darkg.css');
+            }
+        })();
+    </script>
+</head>
+<body>
+<script>
+        function toggleTheme() {
+            const themeLink = document.getElementById('theme-style');
+            const currentTheme = themeLink.getAttribute('href');
+            if (currentTheme.includes('style15.css')) {
+                themeLink.setAttribute('href', '../css/style9_darkg.css');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeLink.setAttribute('href', '../css/style15.css');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+    </script>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">L.K</a>
+            <ul class="nav-links">
+                <li><a href="../">Accueil</a></li>
+                <li><a href="../diplomes/">Diplômes</a></li>
+                <li><a href="../formation/">Formation</a></li>
+                <li><a href="../stage/">Stages</a></li>
+                <li><a href="." class="active">CV</a></li>
+                <li><a href="../veilletechno/">Veille</a></li>
+                <li><a href="../presentationperso/">À propos</a></li>
+                <li><a href="../contact/" class="btn-contact">Contact</a></li>
+                
+                <li><button onclick="toggleTheme()" class="theme-switch" title="Changer de thème">🌙 / ☀️</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero-small">
+            <h1>Voici mon CV</h1>
+            <p>Consultez ou téléchargez mes documents.</p>
+        </section>
+
+        <div class="container">
+            
+            <section class="pdf-container">
+                <h2 class="section-title">Mon CV</h2>
+                <a href="../Documents/PDF/CV.pdf" class="btn-download" download>📥 Télécharger le CV (PDF)</a>
+                <div style="height: 600px; border: 1px solid #ddd;">
+                    <embed src="../Documents/PDF/CV.pdf" width="100%" height="100%" type="application/pdf"/>
+                </div>
+            </section>
+
+            <section class="pdf-container">
+                <h2 class="section-title">Mon portefeuille de compétence</h2>
+                <a href="../Documents/PDF/competence.pdf" class="btn-download" download>📥 Télécharger le portefeuille de compétence (PDF)</a>
+                <div style="height: 600px; border: 1px solid #ddd;">
+                    <embed src="../Documents/PDF/competence.pdf" width="100%" height="100%" type="application/pdf"/>
+                </div>
+            </section>
+
+
+
+<!---
+            <section class="pdf-container" style="margin-top: 4rem;">
+                <h2 class="section-title">Lettre de Motivation</h2>
+                <a href="../Documents/PDF/motiv.pdf" class="btn-download" download>📥 Télécharger la lettre (PDF)</a>
+                <div style="height: 600px; border: 1px solid #ddd;">
+                    <embed src="../Documents/PDF/motiv.pdf" width="100%" height="100%" type="application/pdf"/>
+                </div>
+            </section> -->
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Loic Kebabla</p>
+    </footer>
+
+</body>
+</html>

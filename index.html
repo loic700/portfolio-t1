@@ -7,6 +7,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <link id="theme-style" rel="stylesheet" href="css/style15.css">
+
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.getElementById('theme-style').setAttribute('href', 'css/style9_darkg.css');
+            }
+        })();
+    </script>
 </head>
 <body>
 
@@ -15,13 +24,13 @@
             <a href="index.html" class="logo">L.K</a>
             <ul class="nav-links">
                 <li><a href="index.html" class="active">Accueil</a></li>
-                <li><a href="diplomes.html">Diplômes</a></li>
-                <li><a href="formation.html">Formation</a></li>
-                <li><a href="stages.html">Stages</a></li>
-                <li><a href="cv.html">CV</a></li>
-                <li><a href="veilletechno.html">Veille</a></li>
-                <li><a href="presentationperso.html">À propos</a></li>
-                <li><a href="contact.html" class="btn-contact">Contact</a></li>
+                <li><a href="./diplomes/">Diplômes</a></li>
+                <li><a href="./formation/">Formation</a></li>
+                <li><a href="./stage/">Stages</a></li>
+                <li><a href="./cv/">CV</a></li>
+                <li><a href="./veilletechno/">Veille</a></li>
+                <li><a href="./presentationperso/">À propos</a></li>
+                <li><a href="./contact/" class="btn-contact">Contact</a></li>
                 
                 <li><button onclick="toggleTheme()" class="theme-switch" title="Changer de thème">🌙 / ☀️</button></li>
             </ul>
@@ -43,9 +52,8 @@
             <br><br>
 
             <section id="projects">
-                <h2 class="section-title">Mes Projets Récents</h2>
+                <h2 class="section-title">Mes Projets Personnel</h2>
                 <div class="grid-container">
-                    
                     <article class="card">
                         <span class="tag finished">Terminé ✅</span>
                         <h3>Mise en place d'un serveur</h3>
@@ -65,7 +73,7 @@
                     </article>
 
                     <article class="card">
-                        <span class="tag future">À venir ❌</span>
+                        <span class="tag future">Terminé ✅</span>
                         <h3>Migration du serveur Ubuntu</h3>
                         <p>Changement du serveur pour le migrer sous Proxmox.</p>
                     </article>
@@ -87,7 +95,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 - Loic Kebabla. Tous droits réservés.</p>
+        <p>&copy; 2026 - Loic Kebabla. Tous droits réservés.</p>
     </footer>
 
     <script>
@@ -95,22 +103,12 @@
             const themeLink = document.getElementById('theme-style');
             const currentTheme = themeLink.getAttribute('href');
 
-            // Si on est sur style15 (Sunset), on passe à style9_darkg (Dark)
             if (currentTheme.includes('style15.css')) {
                 themeLink.setAttribute('href', 'css/style9_darkg.css');
-                localStorage.setItem('theme', 'dark'); // On sauvegarde le choix
+                localStorage.setItem('theme', 'dark');
             } else {
                 themeLink.setAttribute('href', 'css/style15.css');
-                localStorage.setItem('theme', 'light'); // On sauvegarde le choix
-            }
-        }
-
-        // Au chargement de la page, on vérifie si l'utilisateur avait choisi un thème
-        window.onload = function() {
-            const savedTheme = localStorage.getItem('theme');
-            const themeLink = document.getElementById('theme-style');
-            if (savedTheme === 'dark') {
-                themeLink.setAttribute('href', 'css/style9_darkg.css');
+                localStorage.setItem('theme', 'light');
             }
         }
     </script>
