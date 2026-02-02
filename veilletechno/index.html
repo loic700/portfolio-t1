@@ -3,10 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loic Kebabla - Portfolio</title>
+    <title>Loic Kebabla - Veille Technologique</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <link id="theme-style" rel="stylesheet" href="../css/style15.css">
+
+    <style>
+        /* Styles spécifiques pour rendre la veille propre dans ta grid */
+        .veille-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .veille-card:hover { transform: translateY(-5px); }
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            background: #00ff9d;
+            color: #121212;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        .glossary-section {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(0, 255, 157, 0.05);
+            border-radius: 15px;
+        }
+        .glossary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        .glossary-item b { color: #00ff9d; display: block; margin-bottom: 5px; }
+        .source-link { color: #4da6ff; font-size: 0.85rem; text-decoration: none; display: block; margin-top: 10px; }
+    </style>
 
     <script>
         (function() {
@@ -18,16 +54,15 @@
     </script>
 </head>
 <body>
-<script>
+    <script>
         function toggleTheme() {
             const themeLink = document.getElementById('theme-style');
             const isSunset = themeLink.getAttribute('href').includes('style15.css');
-            
-            // Chemins avec ../ pour rester sur le bon style
             themeLink.setAttribute('href', isSunset ? '../css/style9_darkg.css' : '../css/style15.css');
             localStorage.setItem('theme', isSunset ? 'dark' : 'light');
         }
     </script>
+
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">L.K</a>
@@ -40,8 +75,7 @@
                 <li><a href="." class="active">Veille</a></li>
                 <li><a href="../presentationperso/">À propos</a></li>
                 <li><a href="../contact/" class="btn-contact">Contact</a></li>
-                
-                <li><button onclick="toggleTheme()" class="theme-switch" title="Changer de thème">🌙 / ☀️</button></li>
+                <li><button onclick="toggleTheme()" class="theme-switch">🌙 / ☀️</button></li>
             </ul>
         </div>
     </nav>
@@ -49,15 +83,64 @@
     <main>
         <section class="hero-small">
             <h1>Veille Technologique</h1>
-            <p>Sujet :.</p>
+            <p>Sujet : L'impact de l'IA sur les infrastructures Système et Réseau (SISR)</p>
         </section>
 
         <div class="container">
-            
+            <div style="margin-bottom: 3rem; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto;">
+                <p>Depuis 2024, mon travail de veille s'est concentré sur la transformation du métier d'administrateur. On passe d'une gestion manuelle à une infrastructure "réfléchie", où l'IA aide à anticiper les pannes et à sécuriser les flux de données de manière autonome.</p>
+            </div>
+
             <div class="grid-container">
+                <div class="veille-card">
+                    <span class="tag">Fin 2024</span>
+                    <h3>L'IA et l'automatisation du code</h3>
+                    <p>Mes recherches ont commencé sur l'usage des IA pour générer des scripts <strong>Ansible</strong> et <strong>Terraform</strong>. L'objectif est de déployer des serveurs sans erreurs de syntaxe.</p>
+                    <a href="https://www.hashicorp.com/state-of-cloud-strategy" class="source-link">→ Source : HashiCorp Strategy</a>
                 </div>
 
-            <p style="margin-top: 2rem; color: var(--text-muted); font-size: 0.9rem; text-align: center;">Dernière mise à jour : 24/09/2025</p>
+                <div class="veille-card">
+                    <span class="tag">Courant 2025</span>
+                    <h3>Réseaux "AI-Native" et Sécurité</h3>
+                    <p>Analyse de l'évolution des équipements (Cisco, Juniper). L'IA est désormais intégrée pour détecter des comportements suspects sur le réseau et bloquer les menaces en temps réel.</p>
+                    <a href="https://www.crowdstrike.com/fr-fr/global-threat-report/" class="source-link">→ Source : Rapport CrowdStrike 2025</a>
+                </div>
+
+                <div class="veille-card">
+                    <span class="tag">Début 2026</span>
+                    <h3>Observabilité et Auto-réparation</h3>
+                    <p>Focus actuel : les systèmes "Self-Healing". L'infrastructure détecte une lenteur, analyse la cause et redémarre les services d'elle-même avant que l'utilisateur ne s'en aperçoive.</p>
+                    <a href="https://thecuberesearch.com/dynatrace-perform-2026-signals-a-shift-from-observability-platforms-to-operational-control-planes/" class="source-link">→ Source : Dynatrace Perform 2026</a>
+                </div>
+            </div>
+
+            <div class="glossary-section">
+                <h2>Comprendre les acteurs de cette veille</h2>
+                <div class="glossary-grid">
+                    <div class="glossary-item">
+                        <b>DSI & CIO</b>
+                        C'est la direction informatique. Ils décident quelles technologies adopter pour que l'entreprise reste performante et sécurisée.
+                    </div>
+                    <div class="glossary-item">
+                        <b>IREN</b>
+                        Spécialistes des infrastructures lourdes. Ils conçoivent les centres de données ultra-puissants nécessaires pour faire tourner les calculs d'IA.
+                    </div>
+                    <div class="glossary-item">
+                        <b>Dynatrace (Observabilité)</b>
+                        C'est l'outil qui "voit tout". Contrairement au monitoring classique, il comprend pourquoi un serveur est lent et propose la solution.
+                    </div>
+                    <div class="glossary-item">
+                        <b>CrowdStrike</b>
+                        C'est le leader de la protection nouvelle génération. Ils utilisent l'IA pour stopper les virus avant même qu'ils ne soient connus des bases de données classiques.
+                    </div>
+                    <div class="glossary-item">
+                        <b>HashiCorp</b>
+                        Les pionniers de l'Infrastructure as Code. Grâce à eux, on gère des serveurs comme on écrit du code, ce qui permet à l'IA de nous aider à construire nos réseaux.
+                    </div>
+                </div>
+            </div>
+
+            <p style="margin-top: 3rem; color: var(--text-muted); font-size: 0.9rem; text-align: center;">Dernière mise à jour : 02/02/2026</p>
 
         </div>
     </main>
@@ -65,7 +148,5 @@
     <footer>
         <p>&copy; 2026 - Loic Kebabla</p>
     </footer>
-
-
 </body>
 </html>
