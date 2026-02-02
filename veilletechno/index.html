@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loic Kebabla - Veille Technologique</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     
     <link id="theme-style" rel="stylesheet" href="../css/style15.css">
 
@@ -18,18 +18,10 @@
     </script>
 </head>
 <body>
-    <script>
-        function toggleTheme() {
-            const themeLink = document.getElementById('theme-style');
-            const isSunset = themeLink.getAttribute('href').includes('style15.css');
-            themeLink.setAttribute('href', isSunset ? '../css/style9_darkg.css' : '../css/style15.css');
-            localStorage.setItem('theme', isSunset ? 'dark' : 'light');
-        }
-    </script>
 
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo">L.K</a>
+            <a href="../index.html" class="logo">L.K</a>
             <ul class="nav-links">
                 <li><a href="../">Accueil</a></li>
                 <li><a href="../diplomes/">Diplômes</a></li>
@@ -44,68 +36,102 @@
         </div>
     </nav>
 
-    <main>
+    <main class="container">
         <section class="hero-small">
             <h1>Veille Technologique</h1>
-            <p>Sujet : L'intelligence artificielle au cœur des infrastructures SISR</p>
+            <p>Comment l'Intelligence Artificielle transforme ma façon de gérer les serveurs et les réseaux.</p>
         </section>
 
-        <div class="container">
-            
-            <h2 class="section-title">Analyse Chronologique (2024 - 2026)</h2>
+        <h2 class="section-title">Mes 10 sources d'analyse (2024 - 2026)</h2>
 
-            <div class="grid-container">
-                <div class="card">
-                    <span class="tag finished">2024</span>
-                    <h3>Automatisation & Scripting</h3>
-                    <p>Au début de ma veille, je me suis concentré sur l'aide que l'IA apporte au quotidien pour le scripting. L'utilisation de LLM pour générer des playbooks <strong>Ansible</strong> ou du code <strong>Terraform</strong> permet de gagner un temps précieux et d'éviter les erreurs de syntaxe lors des déploiements.</p>
-                    <a href="https://www.hashicorp.com/state-of-cloud-strategy" class="btn-download" style="padding: 0.5rem 1rem; min-width: auto; font-size: 0.8rem; margin-top: 1rem;">Voir la source</a>
-                </div>
+        <div class="grid-container">
 
-                <div class="card">
-                    <span class="tag in-progress">2025</span>
-                    <h3>Réseaux AI-Native</h3>
-                    <p>En 2025, on voit que l'IA s'installe directement dans le matériel (Cisco, Juniper). Le réseau devient capable de s'auto-configurer et de détecter des anomalies de trafic. C'est un tournant : on ne fait plus que surveiller, on gère une infrastructure qui "réagit" seule aux incidents.</p>
-                    <a href="https://www.cio-online.com/actualites/lire-comment-l-ia-va-transformer-les-reseaux-d-entreprise-16303.html" class="btn-download" style="padding: 0.5rem 1rem; min-width: auto; font-size: 0.8rem; margin-top: 1rem;">Lire l'article</a>
-                </div>
+            <article class="card">
+                <span class="tag finished">Janvier 2026</span>
+                <h3>Les serveurs qui se réparent seuls</h3>
+                <p>J'ai suivi l'évolution des outils de surveillance. Aujourd'hui, l'IA ne se contente plus de dire qu'il y a un problème, elle essaie de le corriger avant que l'utilisateur s'en aperçoive.</p>
+                <a href="https://thecuberesearch.com/dynatrace-perform-2026-signals-a-shift-from-observability-platforms-to-operational-control-planes/" class="btn-download" target="_blank" style="padding: 0.5rem 1rem; min-width: auto; font-size: 0.8rem;">Lire l'article</a>
+            </article>
 
-                <div class="card">
-                    <span class="tag future">2026</span>
-                    <h3>Observabilité & Sécurité</h3>
-                    <p>Aujourd'hui, l'enjeu est l'auto-remédiation (Self-Healing). Grâce à des outils comme <strong>Dynatrace</strong> ou <strong>CrowdStrike</strong>, l'IA identifie la cause racine d'une panne ou d'une intrusion et applique un correctif instantanément, garantissant une haute disponibilité des systèmes.</p>
-                    <a href="https://thecuberesearch.com/dynatrace-perform-2026-signals-a-shift-from-observability-platforms-to-operational-control-planes/" class="btn-download" style="padding: 0.5rem 1rem; min-width: auto; font-size: 0.8rem; margin-top: 1rem;">Rapport 2026</a>
-                </div>
-            </div>
+            <article class="card">
+                <span class="tag finished">Février 2026</span>
+                <h3>Les priorités des patrons informatiques</h3>
+                <p>Une étude montre que pour 2026, la priorité est de rendre les systèmes plus intelligents pour mieux résister aux pannes et aux attaques.</p>
+                <a href="https://synapsys-groupe.com/tendances-priorites-dsi-2026/" class="btn-download" target="_blank" style="padding: 0.5rem 1rem; min-width: auto; font-size: 0.8rem;">Consulter l'étude</a>
+            </article>
 
-            <hr>
+            <article class="card">
+                <span class="tag finished">Janvier 2026</span>
+                <h3>Nouveau matériel pour l'IA</h3>
+                <p>Le matériel change : les nouveaux serveurs sont maintenant conçus spécifiquement pour faire tourner de l'intelligence artificielle directement dans les entreprises.</p>
+                <a href="https://iren.com/resources/blog/the-state-of-ai-infrastructure-5-defining-trends-for-2026" class="btn-download" target="_blank" style="padding: 0.5rem 1rem; min-width: auto; font-size: 0.8rem;">Voir les tendances</a>
+            </article>
 
-            <h2 class="section-title">Lexique & Acteurs Clés</h2>
-            
-            <div class="grid-container">
-                <div class="card">
-                    <h3>Gouvernance (DSI & CIO)</h3>
-                    <p>La <strong>DSI</strong> (Direction des Systèmes d'Information) et le <strong>CIO</strong> (Chief Information Officer) sont ceux qui pilotent ces changements. Ils ne voient plus l'IA comme un gadget, mais comme un levier pour sécuriser et optimiser les coûts de l'infrastructure.</p>
-                </div>
+            <article class="card">
+                <span class="tag in-progress">Août 2025</span>
+                <h3>Un assistant pour la sécurité</h3>
+                <p>Microsoft a mis à jour ses outils pour aider les techniciens à comprendre les cyberattaques plus rapidement grâce à un assistant intelligent qui explique les menaces.</p>
+                <a href="https://www.calpcc.com/new-in-microsoft-365-copilot-august-2025/" class="btn-download" target="_blank" style="padding: 0.5rem 1rem; min-width: auto; font-size: 0.8rem;">Découvrir l'outil</a>
+            </article>
 
-                <div class="card">
-                    <h3>Performance (IREN)</h3>
-                    <p>L'infrastructure physique doit suivre. Des acteurs comme <strong>IREN</strong> travaillent sur des centres de données capables de supporter la puissance de calcul nécessaire aux modèles d'IA modernes, notamment avec les nouveaux serveurs GPU.</p>
-                </div>
+            <article class="card">
+                <span class="tag in-progress">Mai 2025</span>
+                <h3>Le réseau devient plus malin</h3>
+                <p>L'IA s'installe dans les câbles et le Wi-Fi. Elle peut maintenant décider de donner plus de vitesse à une visio-conférence importante tout en ralentissant les téléchargements moins urgents.</p>
+                <a href="https://www.cio-online.com/actualites/lire-comment-l-ia-va-transformer-les-reseaux-d-entreprise-16303.html" class="btn-download" target="_blank" style="padding: 0.5rem 1rem; min-width: auto; font-size: 0.8rem;">Lire l'analyse</a>
+            </article>
 
-                <div class="card">
-                    <h3>Sécurité (EDR/XDR)</h3>
-                    <p>Des entreprises comme <strong>CrowdStrike</strong> utilisent l'IA pour analyser des milliards d'événements par jour. Cela permet de bloquer des cyberattaques complexes que les pare-feux classiques ne pourraient pas voir.</p>
-                </div>
-            </div>
+            <article class="card">
+                <span class="tag in-progress">Janvier 2025</span>
+                <h3>Rapport sur les menaces 2025</h3>
+                <p>Ce rapport explique comment les hackers utilisent l'IA pour attaquer, et comment nous, en tant que techniciens, on utilise l'IA pour les bloquer en quelques secondes.</p>
+                <a href="https://www.crowdstrike.com/fr-fr/global-threat-report/" class="btn-download" target="_blank" style="padding: 0.5rem 1rem; min-width: auto; font-size: 0.8rem;">Voir le rapport</a>
+            </article>
 
-            <p style="margin-top: 4rem; color: var(--text-muted); font-size: 0.9rem; text-align: center;">Dernière mise à jour du journal de veille : 02/02/2026</p>
+            <article class="card">
+                <span class="tag finished">Décembre 2024</span>
+                <h3>L'IA pour écrire du code réseau</h3>
+                <p>J'ai vu comment l'IA aide à écrire les scripts pour configurer les serveurs. Ça permet de travailler plus vite et surtout de faire beaucoup moins d'erreurs de frappe.</p>
+                <a href="https://www.hashicorp.com/blog/how-ai-is-changing-infrastructure-as-code" class="btn-download" target="_blank" style="padding: 0.5rem 1rem; min-width: auto; font-size: 0.8rem;">Accéder à l'article</a>
+            </article>
+
+            <article class="card">
+                <span class="tag finished">Octobre 2024</span>
+                <h3>Le futur des centres de données</h3>
+                <p>Cisco explique que d'ici 2026, presque tous les centres de données devront être capables de gérer de l'IA pour rester efficaces.</p>
+                <a href="https://techxmedia.com/en/cisco-report-89-of-it-pros-to-implement-ai-ready-data-centers-by-2026/" class="btn-download" target="_blank" style="padding: 0.5rem 1rem; min-width: auto; font-size: 0.8rem;">Consulter l'actu</a>
+            </article>
+
+            <article class="card">
+                <span class="tag finished">Mars 2024</span>
+                <h3>Le Wi-Fi intelligent</h3>
+                <p>Une nouvelle façon de gérer le Wi-Fi en entreprise est née. L'IA apprend des habitudes des employés pour éviter que le réseau ne sature aux heures de pointe.</p>
+                <a href="https://www.nomios.com/events/ai-native-now-the-next-era/" class="btn-download" target="_blank" style="padding: 0.5rem 1rem; min-width: auto; font-size: 0.8rem;">En savoir plus</a>
+            </article>
+
+            <article class="card">
+                <span class="tag finished">Janvier 2024</span>
+                <h3>Surveillance simplifiée</h3>
+                <p>L'IA permet maintenant de surveiller des milliers d'ordinateurs en même temps sans être noyé sous les messages d'erreur. Elle fait le tri pour nous.</p>
+                <a href="https://www.elastic.co/blog/2026-observability-trends-costs-business-impact" class="btn-download" target="_blank" style="padding: 0.5rem 1rem; min-width: auto; font-size: 0.8rem;">Lire les tendances</a>
+            </article>
 
         </div>
+
+        <p style="margin-top: 4rem; color: var(--text-muted); font-size: 0.9rem; text-align: center;">Mise à jour régulière de ma veille technologique — 2026</p>
     </main>
 
     <footer>
         <p>&copy; 2026 - Loic Kebabla</p>
     </footer>
 
+    <script>
+        function toggleTheme() {
+            const themeLink = document.getElementById('theme-style');
+            const isSunset = themeLink.getAttribute('href').includes('style15.css');
+            themeLink.setAttribute('href', isSunset ? '../css/style9_darkg.css' : '../css/style15.css');
+            localStorage.setItem('theme', isSunset ? 'dark' : 'light');
+        }
+    </script>
 </body>
 </html>
