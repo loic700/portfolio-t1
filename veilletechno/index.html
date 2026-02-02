@@ -8,42 +8,6 @@
     
     <link id="theme-style" rel="stylesheet" href="../css/style15.css">
 
-    <style>
-        /* Styles spécifiques pour rendre la veille propre dans ta grid */
-        .veille-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease;
-        }
-        .veille-card:hover { transform: translateY(-5px); }
-        .tag {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            background: #00ff9d;
-            color: #121212;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-        .glossary-section {
-            margin-top: 3rem;
-            padding: 2rem;
-            background: rgba(0, 255, 157, 0.05);
-            border-radius: 15px;
-        }
-        .glossary-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-        .glossary-item b { color: #00ff9d; display: block; margin-bottom: 5px; }
-        .source-link { color: #4da6ff; font-size: 0.85rem; text-decoration: none; display: block; margin-top: 10px; }
-    </style>
-
     <script>
         (function() {
             const savedTheme = localStorage.getItem('theme');
@@ -75,7 +39,7 @@
                 <li><a href="." class="active">Veille</a></li>
                 <li><a href="../presentationperso/">À propos</a></li>
                 <li><a href="../contact/" class="btn-contact">Contact</a></li>
-                <li><button onclick="toggleTheme()" class="theme-switch">🌙 / ☀️</button></li>
+                <li><button onclick="toggleTheme()" class="theme-switch" title="Changer de thème">🌙 / ☀️</button></li>
             </ul>
         </div>
     </nav>
@@ -83,64 +47,58 @@
     <main>
         <section class="hero-small">
             <h1>Veille Technologique</h1>
-            <p>Sujet : L'impact de l'IA sur les infrastructures Système et Réseau (SISR)</p>
+            <p>Sujet : L'intelligence artificielle au cœur des infrastructures SISR</p>
         </section>
 
         <div class="container">
-            <div style="margin-bottom: 3rem; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto;">
-                <p>Depuis 2024, mon travail de veille s'est concentré sur la transformation du métier d'administrateur. On passe d'une gestion manuelle à une infrastructure "réfléchie", où l'IA aide à anticiper les pannes et à sécuriser les flux de données de manière autonome.</p>
-            </div>
+            
+            <h2 class="section-title">Analyse Chronologique (2024 - 2026)</h2>
 
             <div class="grid-container">
-                <div class="veille-card">
-                    <span class="tag">Fin 2024</span>
-                    <h3>L'IA et l'automatisation du code</h3>
-                    <p>Mes recherches ont commencé sur l'usage des IA pour générer des scripts <strong>Ansible</strong> et <strong>Terraform</strong>. L'objectif est de déployer des serveurs sans erreurs de syntaxe.</p>
-                    <a href="https://www.hashicorp.com/state-of-cloud-strategy" class="source-link">→ Source : HashiCorp Strategy</a>
+                <div class="card">
+                    <span class="tag finished">2024</span>
+                    <h3>Automatisation & Scripting</h3>
+                    <p>Au début de ma veille, je me suis concentré sur l'aide que l'IA apporte au quotidien pour le scripting. L'utilisation de LLM pour générer des playbooks <strong>Ansible</strong> ou du code <strong>Terraform</strong> permet de gagner un temps précieux et d'éviter les erreurs de syntaxe lors des déploiements.</p>
+                    <a href="https://www.hashicorp.com/state-of-cloud-strategy" class="btn-download" style="padding: 0.5rem 1rem; min-width: auto; font-size: 0.8rem; margin-top: 1rem;">Voir la source</a>
                 </div>
 
-                <div class="veille-card">
-                    <span class="tag">Courant 2025</span>
-                    <h3>Réseaux "AI-Native" et Sécurité</h3>
-                    <p>Analyse de l'évolution des équipements (Cisco, Juniper). L'IA est désormais intégrée pour détecter des comportements suspects sur le réseau et bloquer les menaces en temps réel.</p>
-                    <a href="https://www.crowdstrike.com/fr-fr/global-threat-report/" class="source-link">→ Source : Rapport CrowdStrike 2025</a>
+                <div class="card">
+                    <span class="tag in-progress">2025</span>
+                    <h3>Réseaux AI-Native</h3>
+                    <p>En 2025, on voit que l'IA s'installe directement dans le matériel (Cisco, Juniper). Le réseau devient capable de s'auto-configurer et de détecter des anomalies de trafic. C'est un tournant : on ne fait plus que surveiller, on gère une infrastructure qui "réagit" seule aux incidents.</p>
+                    <a href="https://www.cio-online.com/actualites/lire-comment-l-ia-va-transformer-les-reseaux-d-entreprise-16303.html" class="btn-download" style="padding: 0.5rem 1rem; min-width: auto; font-size: 0.8rem; margin-top: 1rem;">Lire l'article</a>
                 </div>
 
-                <div class="veille-card">
-                    <span class="tag">Début 2026</span>
-                    <h3>Observabilité et Auto-réparation</h3>
-                    <p>Focus actuel : les systèmes "Self-Healing". L'infrastructure détecte une lenteur, analyse la cause et redémarre les services d'elle-même avant que l'utilisateur ne s'en aperçoive.</p>
-                    <a href="https://thecuberesearch.com/dynatrace-perform-2026-signals-a-shift-from-observability-platforms-to-operational-control-planes/" class="source-link">→ Source : Dynatrace Perform 2026</a>
-                </div>
-            </div>
-
-            <div class="glossary-section">
-                <h2>Comprendre les acteurs de cette veille</h2>
-                <div class="glossary-grid">
-                    <div class="glossary-item">
-                        <b>DSI & CIO</b>
-                        C'est la direction informatique. Ils décident quelles technologies adopter pour que l'entreprise reste performante et sécurisée.
-                    </div>
-                    <div class="glossary-item">
-                        <b>IREN</b>
-                        Spécialistes des infrastructures lourdes. Ils conçoivent les centres de données ultra-puissants nécessaires pour faire tourner les calculs d'IA.
-                    </div>
-                    <div class="glossary-item">
-                        <b>Dynatrace (Observabilité)</b>
-                        C'est l'outil qui "voit tout". Contrairement au monitoring classique, il comprend pourquoi un serveur est lent et propose la solution.
-                    </div>
-                    <div class="glossary-item">
-                        <b>CrowdStrike</b>
-                        C'est le leader de la protection nouvelle génération. Ils utilisent l'IA pour stopper les virus avant même qu'ils ne soient connus des bases de données classiques.
-                    </div>
-                    <div class="glossary-item">
-                        <b>HashiCorp</b>
-                        Les pionniers de l'Infrastructure as Code. Grâce à eux, on gère des serveurs comme on écrit du code, ce qui permet à l'IA de nous aider à construire nos réseaux.
-                    </div>
+                <div class="card">
+                    <span class="tag future">2026</span>
+                    <h3>Observabilité & Sécurité</h3>
+                    <p>Aujourd'hui, l'enjeu est l'auto-remédiation (Self-Healing). Grâce à des outils comme <strong>Dynatrace</strong> ou <strong>CrowdStrike</strong>, l'IA identifie la cause racine d'une panne ou d'une intrusion et applique un correctif instantanément, garantissant une haute disponibilité des systèmes.</p>
+                    <a href="https://thecuberesearch.com/dynatrace-perform-2026-signals-a-shift-from-observability-platforms-to-operational-control-planes/" class="btn-download" style="padding: 0.5rem 1rem; min-width: auto; font-size: 0.8rem; margin-top: 1rem;">Rapport 2026</a>
                 </div>
             </div>
 
-            <p style="margin-top: 3rem; color: var(--text-muted); font-size: 0.9rem; text-align: center;">Dernière mise à jour : 02/02/2026</p>
+            <hr>
+
+            <h2 class="section-title">Lexique & Acteurs Clés</h2>
+            
+            <div class="grid-container">
+                <div class="card">
+                    <h3>Gouvernance (DSI & CIO)</h3>
+                    <p>La <strong>DSI</strong> (Direction des Systèmes d'Information) et le <strong>CIO</strong> (Chief Information Officer) sont ceux qui pilotent ces changements. Ils ne voient plus l'IA comme un gadget, mais comme un levier pour sécuriser et optimiser les coûts de l'infrastructure.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Performance (IREN)</h3>
+                    <p>L'infrastructure physique doit suivre. Des acteurs comme <strong>IREN</strong> travaillent sur des centres de données capables de supporter la puissance de calcul nécessaire aux modèles d'IA modernes, notamment avec les nouveaux serveurs GPU.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Sécurité (EDR/XDR)</h3>
+                    <p>Des entreprises comme <strong>CrowdStrike</strong> utilisent l'IA pour analyser des milliards d'événements par jour. Cela permet de bloquer des cyberattaques complexes que les pare-feux classiques ne pourraient pas voir.</p>
+                </div>
+            </div>
+
+            <p style="margin-top: 4rem; color: var(--text-muted); font-size: 0.9rem; text-align: center;">Dernière mise à jour du journal de veille : 02/02/2026</p>
 
         </div>
     </main>
@@ -148,5 +106,6 @@
     <footer>
         <p>&copy; 2026 - Loic Kebabla</p>
     </footer>
+
 </body>
 </html>
